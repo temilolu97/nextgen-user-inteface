@@ -1,103 +1,93 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-black">
+      {/* Hero Section */}
+      <section className="relative isolate overflow-hidden  from-indigo-100/30 pt-14">
+        <div className="mx-auto max-w-7xl px-6  text-center sm:py-10 lg:px-8">
+          <h1 className="text-5xl font-extrabold tracking-tight text-gray-200 sm:text-7xl">
+            This is <span className="text-indigo-600">NEXTGEN</span>!
+          </h1>
+          <p className="mt-6 text-xl text-gray-300">
+            The future of football starts here – where rising stars battle for glory.
+          </p>
+          <p className="mt-6 text-lg text-gray-200">
+            Six teams, One Ultimate Champion
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-6">
+            <Link
+              href="/teams"
+              className="rounded-lg bg-indigo-600 px-6 py-3 text-lg font-semibold text-white shadow-md transition hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            >
+              View Teams
+            </Link>
+            <Link
+              href="/table"
+              className="text-lg font-semibold text-gray-400 transition hover:text-indigo-600"
+            >
+              League Table <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Features Section */}
+      <section className="mx-auto max-w-7xl px-6  sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-lg font-semibold uppercase tracking-wide text-indigo-600">
+            Tournament Features
+          </h2>
+          <p className="mt-4 text-4xl font-bold tracking-tight text-gray-400 sm:text-5xl">
+            Stay updated with every moment of the competition
+          </p>
+        </div>
+
+        {/* Feature Cards */}
+        <div className="mt-16 grid max-w-4xl mx-auto gap-12 sm:grid-cols-2 lg:max-w-none lg:grid-cols-3">
+          {features.map((feature) => (
+            <div key={feature.title} className="flex flex-col items-center text-center">
+              {/* <feature.icon className="h-14 w-14  text-indigo-600" /> */}
+              <h3 className="mt-6 text-xl font-bold text-gray-400">{feature.title}</h3>
+              <p className="mt-2 text-base text-gray-100">{feature.description}</p>
+              <Link
+                href={feature.link}
+                className="mt-4 text-indigo-600 font-semibold transition hover:text-indigo-500"
+              >
+                {feature.linkText} <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
+
+// Feature data
+const features = [
+  {
+    title: "Team Profiles",
+    description:
+      "Explore each team's squad, stats, and tournament performance.",
+    link: "/teams",
+    linkText: "Learn more",
+    icon: () => <svg className="h-12 w-12 text-center text-indigo-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM8 16l-4-4 1.41-1.41L8 13.17l6.59-6.59L16 8l-8 8z" /></svg>,
+  },
+  {
+    title: "Match Results",
+    description:
+      "Get live scores, key match stats, and tournament standings.",
+    link: "/results",
+    linkText: "View results",
+    icon: () => <svg className="h-6 w-6 text-indigo-600" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 16l-4-4 1.41-1.41L8 13.17l6.59-6.59L16 8l-8 8z" /></svg>,
+  },
+  {
+    title: "Tournament News",
+    description:
+      "Breaking news, match previews, and expert analysis.",
+    link: "/blog",
+    linkText: "Read blog",
+    icon: () => <svg className="h-6 w-6 text-indigo-600" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 16l-4-4 1.41-1.41L8 13.17l6.59-6.59L16 8l-8 8z" /></svg>,
+  },
+];
